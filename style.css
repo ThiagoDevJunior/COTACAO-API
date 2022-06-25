@@ -1,0 +1,46 @@
+.dolar_americano{
+	color: lawngreen;
+}
+
+.dolar_canadense{
+	color:  red;
+}
+
+.EURO{
+	color: yellowgreen;
+}
+
+.LIBRA{
+	color:  blue;
+}
+
+.IENE{
+	color: darkolivegreen;
+}
+
+.bit_coin{
+	color:  deepskyblue;
+}
+
+.peso_a{
+	color: black;
+}
+
+
+.data{
+	text-align: center;
+	color: blue;
+}
+
+.todo_conteudo{
+	font-family: sans-serif;
+}
+
+body{
+	background-color:  ghostwhite;
+}
+
+.carregar{
+	font-family: serif;
+	text-align: center;
+}
