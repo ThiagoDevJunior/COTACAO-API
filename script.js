@@ -1,3 +1,5 @@
+/*API QUE ESTÁ SENDO USADA -->: 'https://economia.awesomeapi.com.br/json/all' */
+
 /*FUNÇÃO PARA FORMATAR VALORES DA API EM PADRÃO BRASIL -> BRL*/
 const formatar_valores = new Intl.NumberFormat('pt-BR', {
 	style: 'currency',
@@ -48,7 +50,7 @@ function atualizar(){
 		libra = `${corpo.GBP.bid}`
 		var libra_f = formatar_valores.format(libra);
 
-		iene = `${corpo.GBP.bid}`
+		iene = `${corpo.JPY.bid}`
 		var iene_f = formatar_valores.format(iene);
 
 		bit_coin = `${corpo.BTC.bid}`
@@ -63,7 +65,7 @@ function atualizar(){
 		document.getElementById('dolar_C').innerHTML = 'DOLAR CANADENSE: ' + dolar_c_formatado
 		document.getElementById('euro').innerHTML = 'EURO: ' + euro_formatado
 		document.getElementById('libra').innerHTML = 'LIBRA: ' + libra_f
-		document.getElementById('iene').innerHTML = 'ÍENE: ' + iene_f
+		document.getElementById('iene').innerHTML = 'ÍENE JAPONÊS: ' + iene_f
 		document.getElementById('bit_coin').innerHTML = 'BIT-CÓIN: ' + bit_coin_f
 		document.getElementById('p_argentino').innerHTML = 'PESO-ARGÉNTINO: ' + peso_argentino_f
 
