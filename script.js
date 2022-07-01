@@ -7,27 +7,9 @@ const formatar_valores = new Intl.NumberFormat('pt-BR', {
 	minimumFranctionDigits: 2,
 })
 
-function data(){
-	/*DATA EM TEMPO REAL*/
-	var dia_f = new Date();
-	dia_f.setDate(dia_f.getDate());
 
-	var dia = dia_f.getDate();
-	var mes = dia_f.getMonth();
-	var ano = dia_f.getFullYear();
-	var horas = dia_f.getHours();
-	var minutos = dia_f.getMinutes();
-	var segund = dia_f.getSeconds();
-
-
-	data_formatada = 'DATA<br>' + dia + '/' + (mes +1) + '/' + ano + '<br>' + horas + ':' + minutos + ':' + segund
-	document.getElementById('data').innerHTML = data_formatada
-
-}
-
-
-/*A CADA 5 SEGUNDOS DO SITE ABERTO OS VALORES SÃO ATUALIZADOS... SITE EM TEMPO REAL - COTAÇÃO DE MOEDAS*/
-function atualizar(){
+/*A CADA 1 SEGUNDOS DO SITE ABERTO OS VALORES SÃO ATUALIZADOS... SITE EM TEMPO REAL - COTAÇÃO DE MOEDAS*/
+function atualizar_site(){
 	
 	fetch('https://economia.awesomeapi.com.br/json/all')
 
@@ -70,15 +52,31 @@ function atualizar(){
 		document.getElementById('p_argentino').innerHTML = 'PESO-ARGÉNTINO: ' + peso_argentino_f
 
 
+		/*DATA E HORA EM TEMPO REAL*/
+		document.getElementById('linha').innerHTML = '_____________________________________';
+		var dia_f = new Date();
+		dia_f.setDate(dia_f.getDate());
+
+		var dia = dia_f.getDate();
+		var mes = dia_f.getMonth();
+		var ano = dia_f.getFullYear();
+		var horas = dia_f.getHours();
+		var minutos = dia_f.getMinutes();
+		var segund = dia_f.getSeconds();
+
+		/*PASSAR VALORES PARA A TELA*/
+		data_formatada = 'DATA<br>' + dia + '/' + (mes +1) + '/' + ano + '<br>' + horas + ':' + minutos + ':' + segund
+		document.getElementById('data').innerHTML = data_formatada
+
+
+		/* TELA DE CARREGAMENTO */
 		/*QUANDO CARREGAR, RETIRA O SPINNER DE CARREGAMENTO
 		E SUBSTITUE POR '' NADA!*/
 		document.getElementById('p_carregar').innerHTML = ``;
-		document.getElementById('linha').innerHTML = '_____________________________________';
 
 	})
 
 }
 
 /*TEMPO É DADO EM MILISIGUNDOS! EX: 5000 = 5 SEGUNDOS, 3000 = 3 SEGUNDOS... */
-setInterval(atualizar, 1000);
-setInterval(data, 1000);
+setInterval(atualizar_site, 1000);
